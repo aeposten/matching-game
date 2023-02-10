@@ -1,4 +1,5 @@
 import Card from "../Card/Card";
+import CardBack from "../CardBack/CardBack";
 
 import "./CardGrid.css";
 
