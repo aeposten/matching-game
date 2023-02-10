@@ -1,8 +1,8 @@
 import "./Card.css"
-function Card({emoji}) {
+function Card({emojiCard, setSelectedCard}) {
     return (
-        <section className="card">
-           {emoji}
+        <section className="card" onClick={() => setSelectedCard(emojiCard.id)}>
+           {emojiCard.emoji}
         </section>
     )
 }

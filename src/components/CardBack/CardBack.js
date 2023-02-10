@@ -1,7 +1,7 @@
 import "./CardBack.css"
-function CardBack() {
+function CardBack({emojiCard, setSelectedCard}) {
     return (
-        <section>
+        <section className="card-back" onClick={() => setSelectedCard(emojiCard.id)}>
             Check out the back of the card!
         </section>
     )
