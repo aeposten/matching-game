@@ -7,7 +7,7 @@ import EMOJIS from "./emojiData";
 import { nanoid } from "nanoid";
 
 function App() {
-  const [started, setStarted] = useState(false)
+  const [started, setStarted] = useState(false);
   const [emojiObjects, setEmojiObjects] = useState([]);
 
   function setSelectedCard(cardId) {
@@ -21,7 +21,7 @@ function App() {
           : emojiObject;
       })
     );
-    console.log(emojiObjects)
+    console.log(emojiObjects);
   }
 
   function generateEmojiObjects() {
@@ -42,7 +42,7 @@ function App() {
   }
 
   function startGame() {
-    setStarted((prevStarted) => !prevStarted)
+    setStarted((prevStarted) => !prevStarted);
   }
   useEffect(() => {
     generateEmojiObjects();
@@ -50,7 +50,11 @@ function App() {
 
   return (
     <div className="App">
-      {!started ? <button onClick={startGame}>Start Game</button> : <CardGrid emojiCards={emojiObjects} setSelectedCard={setSelectedCard}/>}
+      {!started ? (
+        <button onClick={startGame}>Start Game</button>
+      ) : (
+        <CardGrid emojiCards={emojiObjects} setSelectedCard={setSelectedCard} />
+      )}
     </div>
   );
 }
