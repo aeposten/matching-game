@@ -1,7 +1,8 @@
-function Card() {
+import "./Card.css"
+function Card({emoji}) {
     return (
         <section className="card">
-            It's one Card!
+           {emoji}
         </section>
     )
 }
