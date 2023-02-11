@@ -1,5 +1,7 @@
 .card-back {
   width: 15vw;
+  max-width:10em;
   height: 20vw;
+  max-height: 15em;
   background-color: blue;
 }

@@ -9,6 +9,10 @@ import { nanoid } from "nanoid";
 function App() {
   const [started, setStarted] = useState(false);
   const [emojiObjects, setEmojiObjects] = useState([]);
+  const [cardChoices, setCardChoices] = useState({
+    cardOne: null,
+    cardTwo: null,
+  });
 
   function setSelectedCard(cardId) {
     setEmojiObjects((prevEmojiObjects) =>
@@ -21,9 +25,25 @@ function App() {
           : emojiObject;
       })
     );
-    console.log(emojiObjects);
   }
 
+  function generateChoices(emojiObjects, cardId) {
+    emojiObjects.map((emojiObject) => {
+      return emojiObject.id === cardId
+        ? !cardChoices.cardOne
+          ? setCardChoices((prevCardChoices) => ({
+              ...prevCardChoices,
+              cardOne: emojiObject,
+            }))
+          : setCardChoices((prevCardChoices) => ({
+              ...prevCardChoices,
+              cardTwo: emojiObject,
+            }))
+        : emojiObject;
+    });
+  }
+
+  console.log(cardChoices);
   function generateEmojiObjects() {
     let generatedObjects = [];
     for (let i = 0; i <= 1; i++) {
@@ -53,7 +73,12 @@ function App() {
       {!started ? (
         <button onClick={startGame}>Start Game</button>
       ) : (
-        <CardGrid emojiCards={emojiObjects} setSelectedCard={setSelectedCard} />
+        <CardGrid
+          emojiCards={emojiObjects}
+          setSelectedCard={setSelectedCard}
+          emojiObjects={emojiObjects}
+          generateChoices={generateChoices}
+        />
       )}
     </div>
   );

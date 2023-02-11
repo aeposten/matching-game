@@ -1,5 +1,6 @@
 .card-grid {
   width: 90vw;
+  max-width: 800px;
   height: 100vh;
   display: grid;
   justify-items: center;
